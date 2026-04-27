@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ekosistem Layanan Publik Digital – Kabupaten Gunungkidul</title>
+<title>SP4N - PPID</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1423,11 +1423,258 @@
     flex-direction: column;
     gap: 14px;
   }
-    .slide { padding: 40px 24px; }
-    .two-col, .action-grid, .monitor-grid, .proc-layout, .portal-layout, .loop-layout { grid-template-columns: 1fr; }
-    .funnel-section { grid-template-columns: 1fr; }
-    nav { padding: 12px 20px; }
+
+  /* =============================================
+     RESPONSIVE: TABLET (≤ 900px)
+  ============================================= */
+  @media (max-width: 900px) {
+    nav { padding: 12px 20px; gap: 8px; }
+    .nav-brand { font-size: 0.85rem; }
     .nav-dots { display: none; }
+
+    .slide { padding: 48px 32px 40px; }
+
+    /* Two-column → single column */
+    .two-col,
+    .action-grid,
+    .monitor-grid,
+    .portal-layout,
+    .loop-layout { grid-template-columns: 1fr; gap: 20px; }
+
+    .laporbup-layout { grid-template-columns: 1fr; gap: 20px; }
+    .ilm-layout { grid-template-columns: 1fr; gap: 20px; }
+
+    .funnel-section { grid-template-columns: 1fr; gap: 16px; }
+    .funnel-arrow { flex-direction: row; justify-content: center; }
+
+    .proc-layout { grid-template-columns: 1fr; gap: 20px; }
+
+    .matrix-paths { grid-template-columns: 1fr 40px 1fr; gap: 8px; }
+
+    /* Phase track: stacked */
+    .phase-track { flex-direction: column; gap: 16px; }
+    .phase-arrow {
+      clip-path: none !important;
+      padding: 14px 20px !important;
+      border-radius: 10px;
+      border: 1px solid rgba(13,138,124,0.25) !important;
+    }
+
+    /* Engine cards */
+    .engine-name { font-size: 2rem; }
+    .engine-connector { position: static; transform: none; }
+
+    /* KPI cards */
+    .kpi-card { padding: 20px; }
+    .kpi-value { font-size: 2.4rem; }
+
+    /* Pyramid levels — full width */
+    .pyramid-level:nth-child(1) .pyramid-card,
+    .pyramid-level:nth-child(2) .pyramid-card,
+    .pyramid-level:nth-child(3) .pyramid-card { width: 100%; }
+
+    /* Comparison table — allow scroll */
+    .comparison-table { font-size: 0.8rem; }
+    .comparison-table th, .comparison-table td { padding: 10px 14px; }
+
+    /* proc table wrap */
+    .proc-table-card { overflow-x: auto; }
+
+    /* Cover deco — hide on small tablets */
+    .cover-deco { display: none; }
+
+    .slide-title { margin-bottom: 24px; }
+    .section-header { margin-bottom: 20px; }
+
+    /* Loop center */
+    .infinity-symbol { font-size: 3.5rem; }
+  }
+
+  /* =============================================
+     RESPONSIVE: MOBILE (≤ 600px)
+  ============================================= */
+  @media (max-width: 600px) {
+    /* NAV */
+    nav { padding: 10px 16px; flex-wrap: wrap; gap: 6px; }
+    .nav-brand { font-size: 0.75rem; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-arrows { gap: 6px; flex-wrap: nowrap; }
+    .nav-btn { padding: 5px 10px; font-size: 0.7rem; }
+    .toggle-label { font-size: 0.6rem; }
+    .toggle-switch { width: 36px; height: 20px; }
+    .toggle-thumb { width: 14px; height: 14px; }
+    .toggle-switch input:checked ~ .toggle-thumb { transform: translateX(16px); }
+
+    /* SLIDES */
+    .slides-wrapper { margin-top: 52px; height: calc(100vh - 52px); }
+    .slide {
+      padding: 16px 16px 48px;
+      height: calc(100vh - 52px);
+      overflow-y: auto;
+      align-items: flex-start;
+    }
+    .slides-track { height: auto; }
+
+    /* Make slides-track work with overflow scroll per slide */
+    .slide-content { width: 100%; max-width: 100%; }
+
+    /* Slide title */
+    .slide-title { font-size: clamp(1.3rem, 5vw, 1.8rem); margin-bottom: 16px; }
+    .slide-label { font-size: 0.6rem; }
+
+    /* Cover */
+    .slide-cover { padding: 40px 20px 60px; justify-content: center; }
+    .cover-tag { font-size: 0.6rem; padding: 5px 14px; margin-bottom: 20px; }
+    .cover-subtitle { font-size: 0.85rem; }
+    .cover-deco { display: none; }
+
+    /* Section header */
+    .section-header { margin-bottom: 14px; }
+
+    /* Engine cards */
+    .engine-card { padding: 24px 20px; }
+    .engine-name { font-size: 1.8rem; }
+    .engine-badge { font-size: 0.6rem; }
+    .engine-desc { font-size: 0.82rem; }
+
+    /* Connector box */
+    .connector-box { font-size: 0.68rem; padding: 10px 14px; white-space: normal; }
+
+    /* Action plan */
+    .action-desc { font-size: 0.8rem; padding: 14px 16px; }
+    .kpi-value { font-size: 2rem; }
+    .kpi-card { padding: 18px; }
+    .kpi-label { font-size: 0.72rem; }
+    .timeline-years { font-size: 0.65rem; }
+
+    /* Pyramid */
+    .pyramid-card { padding: 14px 16px; gap: 10px; }
+    .pyramid-title { font-size: 0.82rem; }
+    .pyramid-desc { font-size: 0.7rem; }
+    .pyramid-icon { width: 32px; height: 32px; font-size: 1rem; }
+    .pyramid-level:nth-child(1) .pyramid-card,
+    .pyramid-level:nth-child(2) .pyramid-card,
+    .pyramid-level:nth-child(3) .pyramid-card { width: 100%; }
+
+    /* Monitor cards */
+    .monitor-card { padding: 18px; }
+    .monitor-title { font-size: 0.88rem; }
+    .monitor-text { font-size: 0.78rem; }
+
+    /* Funnel / LAPORBUP */
+    .funnel-section { gap: 12px; }
+    .source-item { font-size: 0.78rem; padding: 10px 14px; }
+    .channel-box { padding: 18px; }
+    .channel-item { font-size: 0.78rem; }
+
+    /* Social media table — scrollable */
+    .comparison-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .comparison-table th, .comparison-table td { font-size: 0.72rem; padding: 8px 10px; white-space: normal; }
+
+    /* ILM / Video slide */
+    .ilm-layout { gap: 16px; }
+    .ilm-desc { font-size: 0.82rem; }
+    .ilm-point { font-size: 0.78rem; }
+    .video-play-btn { width: 56px; height: 56px; }
+    .video-play-btn svg { width: 22px; height: 22px; }
+    .video-play-label { font-size: 0.7rem; }
+
+    /* PPID MONEV phase track */
+    .phase-track { flex-direction: column; gap: 10px; }
+    .phase-arrow {
+      clip-path: none !important;
+      padding: 12px 16px !important;
+      font-size: 0.78rem;
+      border-radius: 10px;
+      min-height: 50px;
+    }
+    .phase-desc { font-size: 0.7rem; padding: 0 4px; }
+    .phase-result { font-size: 0.75rem; padding: 12px 14px; }
+
+    /* Procurement */
+    .proc-layout { gap: 16px; }
+    .proc-db .db-cylinder { width: 70px; height: 70px; font-size: 2rem; }
+    .proc-table-card { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .proc-table { font-size: 0.68rem; }
+    .proc-table th, .proc-table td { padding: 7px 8px; }
+    .proc-note { font-size: 0.72rem; }
+
+    /* Matrix */
+    .matrix-flow { gap: 12px; }
+    .matrix-top { font-size: 0.82rem; padding: 10px 20px; }
+    .matrix-paths { grid-template-columns: 1fr; gap: 12px; }
+    .matrix-paths > div:nth-child(2) { display: none; } /* hide ⇄ arrow on mobile */
+    .path-card { padding: 16px; }
+    .path-icon { font-size: 1.5rem; }
+    .indicator-chip { font-size: 0.7rem; padding: 6px 12px; }
+
+    /* Portal */
+    .portal-layout { gap: 16px; }
+    .portal-feature { padding: 14px 16px; gap: 10px; }
+    .portal-feature-title { font-size: 0.82rem; }
+    .portal-feature-desc { font-size: 0.72rem; }
+    .mockup-nav { gap: 8px; flex-wrap: wrap; }
+    .mockup-nav-item { font-size: 0.62rem; }
+    .mockup-cards { grid-template-columns: 1fr 1fr; }
+
+    /* Ecosystem loop */
+    .loop-layout { gap: 14px; }
+    .loop-card { padding: 16px; }
+    .loop-card-title { font-size: 0.82rem; }
+    .loop-card-desc { font-size: 0.72rem; }
+    .infinity-symbol { font-size: 2.8rem; }
+    .citizen-badge { padding: 8px 16px; font-size: 0.72rem; }
+    .loop-note { font-size: 0.72rem; padding: 10px 16px; margin-top: 10px; }
+
+    /* Policy card */
+    .policy-card { padding: 16px; }
+    .policy-title { font-size: 0.82rem; }
+    .policy-desc { font-size: 0.75rem; }
+
+    /* Slide number */
+    .slide-number { bottom: 14px; right: 16px; font-size: 0.6rem; }
+
+    /* Key hint */
+    .key-hint { font-size: 0.55rem; bottom: 14px; }
+
+    /* LAPORBUP layout */
+    .laporbup-layout { gap: 14px; }
+    .laporbup-right { gap: 10px; }
+  }
+
+  /* =============================================
+     RESPONSIVE: VERY SMALL (≤ 380px)
+  ============================================= */
+  @media (max-width: 380px) {
+    nav { padding: 8px 12px; }
+    .nav-brand { font-size: 0.65rem; }
+    .nav-btn { padding: 4px 8px; font-size: 0.65rem; }
+    .slide { padding: 12px 12px 44px; }
+    .cover-tag { font-size: 0.55rem; letter-spacing: 0.1em; }
+    .engine-name { font-size: 1.5rem; }
+    .kpi-value { font-size: 1.8rem; }
+  }
+
+  /* =============================================
+     SCROLL MODE: allow slide overflow on mobile
+  ============================================= */
+  @media (max-width: 600px) {
+    /* Override the full-height snap behavior; use scroll instead */
+    .slides-wrapper {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: y mandatory;
+    }
+    .slides-track {
+      transform: none !important;
+      flex-direction: column;
+      height: auto;
+    }
+    .slide {
+      scroll-snap-align: start;
+      height: auto;
+      min-height: calc(100vh - 52px);
+      overflow-y: visible;
+    }
   }
 </style>
 </head>
@@ -2006,20 +2253,24 @@
   }
 
   function goTo(idx) {
-    if (isAnimating) return;
     const target = Math.max(0, Math.min(totalSlides - 1, idx));
+    if (window.innerWidth <= 600) {
+      // Mobile: CSS scroll-snap handles visual; we just update state
+      current = target;
+      slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      updateUI();
+      return;
+    }
+    if (isAnimating) return;
     if (target === current) return;
-
     isAnimating = true;
     if (slides[current]) slides[current].classList.remove('active');
     current = target;
     track.style.transform = 'translateY(-' + (current * 100) + '%)';
-
     setTimeout(() => {
       if (slides[current]) slides[current].classList.add('active');
       isAnimating = false;
     }, 400);
-
     updateUI();
   }
 
@@ -2035,22 +2286,52 @@
     }
   });
 
-  // Touch/swipe
+  // Detect mobile scroll mode (<=600px)
+  function isMobileScrollMode() { return window.innerWidth <= 600; }
+
+  // Touch/swipe — desktop snap mode only
   let touchStartY = 0;
   document.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
   document.addEventListener('touchend', (e) => {
+    if (isMobileScrollMode()) return;
     const diff = touchStartY - e.changedTouches[0].clientY;
     if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
   });
 
-  // Scroll wheel
+  // Scroll wheel — desktop only
   let wheelCooldown = false;
   document.addEventListener('wheel', (e) => {
+    if (isMobileScrollMode()) return;
     if (wheelCooldown) return;
     wheelCooldown = true;
     e.deltaY > 0 ? nextSlide() : prevSlide();
     setTimeout(() => { wheelCooldown = false; }, 900);
   }, { passive: true });
+
+  // Mobile: update current slide indicator on scroll via IntersectionObserver
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      if (!isMobileScrollMode()) return;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = slides.indexOf(entry.target);
+          if (idx !== -1 && idx !== current) { current = idx; updateUI(); }
+        }
+      });
+    }, { threshold: 0.5 });
+    slides.forEach(s => obs.observe(s));
+  }
+
+  // Re-init transform on resize (mobile <-> desktop switch)
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (!isMobileScrollMode()) {
+        track.style.transform = 'translateY(-' + (current * 100) + '%)';
+      }
+    }, 200);
+  });
 
   // Init
   updateUI();
